@@ -35,7 +35,6 @@ const startServer = async () => {
     console.log(`   POST http://localhost:${PORT}/auth/logout`);
     console.log(`   GET  http://localhost:${PORT}/auth/me       🔒`);
     console.log(`   GET  http://localhost:${PORT}/api/dashboard 🔒`);
-    console.log(`   GET  http://localhost:${PORT}/api/posts     🔒`);
     console.log('─────────────────────────────────────────');
     console.log('');
   });

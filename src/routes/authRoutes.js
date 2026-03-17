@@ -12,12 +12,14 @@ import {
   getMe,
 } from '../controllers/authController.js';
 import protect from '../middleware/auth.js';
+import { validateRegister, validateLogin } from '../middleware/validate.js';
 
 const router = Router();
 
 // Public routes — no token needed to access these
-router.post('/register', register);  // create a new account
-router.post('/login', login);        // login and get your tokens
+// Notice: validation middleware runs BEFORE the controller (left to right)
+router.post('/register', validateRegister, register);  // validate → create account
+router.post('/login', validateLogin, login);            // validate → login and get tokens
 router.post('/refresh', refresh);    // use cookie to get new access token
 router.post('/logout', logout);      // revoke refresh token and clear cookie
 
